@@ -1,0 +1,52 @@
+# Apache Flink configuration file
+
+# The address of the JobManager
+jobmanager.rpc.address: localhost
+
+# The RPC port where the JobManager is reachable
+jobmanager.rpc.port: 6123
+
+# The heap size for the JobManager
+jobmanager.memory.process.size: 1024m
+
+# The heap size for the TaskManager
+taskmanager.memory.process.size: 1024m
+
+# The number of task slots per TaskManager
+taskmanager.numberOfTaskSlots: 2
+
+# The default parallelism for operations
+parallelism.default: 1
+
+# Directory for storing checkpoints
+state.checkpoints.dir: file:///tmp/flink-checkpoints
+
+# Directory for storing savepoints
+state.savepoints.dir: file:///tmp/flink-savepoints
+
+# Directory for Flink logs
+logging.dir: file:///tmp/flink-logs
+
+# Web frontend port
+rest.port: 8081
+
+# High availability mode (optional)
+# high-availability: zookeeper
+# high-availability.storageDir: hdfs:///flink/recovery
+# high-availability.zookeeper.quorum: localhost:2181
+# high-availability.zookeeper.path.root: /flink
+# high-availability.cluster-id: /cluster_one
+
+# Advanced networking options (optional)
+# taskmanager.network.memory.min: 64mb
+# taskmanager.network.memory.max: 1gb
+
+# Other configuration options
+# blob.server.port: 6124
+# query.server.port: 6125
+
+# TaskManager communication port
+taskmanager.data.port: 6122
+
+# Directory for TaskManager managed memory
+taskmanager.memory.managed.size: 512m

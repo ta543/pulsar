@@ -1,0 +1,10 @@
+notifiers:
+  - name: email
+    type: email
+    uid: email-notifier
+    isDefault: true
+    sendReminder: false
+    disableResolveMessage: false
+    frequency: 15m
+    settings:
+      addresses: user@example.com

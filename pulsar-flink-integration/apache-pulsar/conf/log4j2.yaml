@@ -1,0 +1,44 @@
+# Configuration file for Log4j2
+
+Configuration:
+  status: WARN
+  Appenders:
+    Console:
+      name: Console
+      target: SYSTEM_OUT
+      PatternLayout:
+        pattern: "%d{ISO8601} [%t] %-5p %c{1} - %m%n"
+    File:
+      name: File
+      fileName: logs/pulsar.log
+      PatternLayout:
+        pattern: "%d{ISO8601} [%t] %-5p %c{1} - %m%n"
+      Policies:
+        SizeBasedTriggeringPolicy:
+          size: 10MB
+      DefaultRolloverStrategy:
+        max: 10
+  Loggers:
+    Root:
+      level: INFO
+      AppenderRef:
+        - ref: Console
+        - ref: File
+    Logger:
+      name: org.apache.zookeeper
+      level: WARN
+      AppenderRef:
+        - ref: Console
+        - ref: File
+    Logger:
+      name: org.apache.bookkeeper
+      level: WARN
+      AppenderRef:
+        - ref: Console
+        - ref: File
+    Logger:
+      name: org.apache.pulsar
+      level: INFO
+      AppenderRef:
+        - ref: Console
+        - ref: File
